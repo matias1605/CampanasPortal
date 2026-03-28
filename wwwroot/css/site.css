@@ -1,0 +1,366 @@
+/* =====================================================
+   site.css  –  Portal de Campañas Comerciales
+   CSS propio, sin frameworks. Simple y funcional.
+   ===================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --azul: #1a56db;
+  --azul-hover: #1444af;
+  --verde: #057a55;
+  --naranja: #c05621;
+  --gris: #4b5563;
+  --fondo: #f5f7fa;
+  --blanco: #ffffff;
+  --borde: #d1d5db;
+  --texto: #111827;
+  --muted: #6b7280;
+  --rojo: #dc2626;
+  --radius: 8px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  background: var(--fondo);
+  color: var(--texto);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ── */
+.header {
+  background: var(--azul);
+  color: #fff;
+  border-bottom: 3px solid var(--azul-hover);
+}
+.header-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+.nav {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 14px;
+}
+.nav a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* ── Contenedor ── */
+.container {
+  flex: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+  width: 100%;
+}
+
+/* ── Footer ── */
+.footer {
+  background: #e5e7eb;
+  text-align: center;
+  padding: 0.85rem;
+  font-size: 13px;
+  color: var(--muted);
+  border-top: 1px solid var(--borde);
+}
+
+/* ── Encabezado de página ── */
+.page-header {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.page-header h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.page-header p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ── Tabla ── */
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--blanco);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+.tabla thead {
+  background: var(--azul);
+  color: #fff;
+}
+.tabla thead th {
+  padding: 0.7rem 0.9rem;
+  text-align: left;
+  font-size: 13px;
+}
+.tabla tbody tr {
+  border-bottom: 1px solid var(--borde);
+}
+.tabla tbody tr:last-child {
+  border-bottom: none;
+}
+.tabla tbody tr:hover {
+  background: #eef2ff;
+}
+.tabla tbody td {
+  padding: 0.7rem 0.9rem;
+  font-size: 14px;
+}
+
+/* ── Tabla info (detalle y resumen por canal) ── */
+.tabla-info {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.tabla-info thead th {
+  padding: 0.5rem 0.75rem;
+  background: #f3f4f6;
+  text-align: left;
+  font-size: 13px;
+}
+.tabla-info tbody tr {
+  border-bottom: 1px solid var(--borde);
+}
+.tabla-info tbody tr:last-child {
+  border-bottom: none;
+}
+.tabla-info tbody td {
+  padding: 0.55rem 0.75rem;
+}
+
+/* ── Badges de estado ── */
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.badge-vigente {
+  background: #d1fae5;
+  color: #065f46;
+}
+.badge-proxima {
+  background: #dbeafe;
+  color: #1e40af;
+}
+.badge-finalizada {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+/* ── Botones ── */
+.btn-primary {
+  display: inline-block;
+  background: var(--azul);
+  color: #fff;
+  padding: 0.45rem 1.1rem;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: var(--azul-hover);
+}
+.btn-secondary {
+  display: inline-block;
+  background: #e5e7eb;
+  color: var(--texto);
+  padding: 0.45rem 1.1rem;
+  border-radius: 6px;
+  font-size: 14px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  background: #d1d5db;
+}
+.btn-sm {
+  display: inline-block;
+  background: var(--azul);
+  color: #fff;
+  padding: 0.3rem 0.75rem;
+  border-radius: 5px;
+  font-size: 12px;
+  text-decoration: none;
+}
+.btn-sm:hover {
+  background: var(--azul-hover);
+}
+
+/* ── Filtro form ── */
+.filtro-form {
+  margin-bottom: 1.5rem;
+}
+.filtro-campos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: var(--radius);
+  padding: 1.1rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.form-group label {
+  font-size: 13px;
+  font-weight: bold;
+}
+.form-group select {
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  padding: 0.45rem 0.75rem;
+  font-size: 14px;
+  outline: none;
+  min-width: 160px;
+}
+.form-group select:focus {
+  border-color: var(--azul);
+}
+.filtro-acciones {
+  display: flex;
+  gap: 0.5rem;
+}
+.sin-resultados {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 0.5rem;
+}
+.resultado-count {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+.card h2 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--borde);
+}
+
+/* ── Detalle ── */
+.detalle-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.detalle-fila {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--borde);
+  font-size: 14px;
+}
+.detalle-fila:last-child {
+  border-bottom: none;
+}
+.detalle-fila .label {
+  color: var(--muted);
+  min-width: 130px;
+}
+.detalle-descripcion {
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.link-volver {
+  color: var(--azul);
+  font-size: 13px;
+  text-decoration: none;
+}
+.link-volver:hover {
+  text-decoration: underline;
+}
+
+/* ── Resumen cards ── */
+.resumen-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0;
+}
+.resumen-card {
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 140px;
+  flex: 1;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+.resumen-card.verde {
+  border-top: 3px solid var(--verde);
+}
+.resumen-card.azul {
+  border-top: 3px solid var(--azul);
+}
+.resumen-card.gris {
+  border-top: 3px solid var(--gris);
+}
+.resumen-card.naranja {
+  border-top: 3px solid var(--naranja);
+}
+.resumen-valor {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--texto);
+}
+.resumen-label {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 0.25rem;
+  text-align: center;
+}
