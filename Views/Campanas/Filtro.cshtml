@@ -1,0 +1,81 @@
+@model List<Campana>
+@{
+    ViewData["Title"] = "Filtrar Campañas";
+    var categorias   = ViewBag.Categorias   as List<string> ?? new();
+    var estados      = ViewBag.Estados      as List<string> ?? new();
+    var catActual    = ViewBag.CategoriaActual as string ?? "";
+    var estActual    = ViewBag.EstadoActual    as string ?? "";
+}
+
+<div class="page-header">
+    <h1>Filtrar Campañas</h1>
+    <p>Selecciona categoría y/o estado para filtrar el listado.</p>
+</div>
+
+<form class="filtro-form" method="get" asp-controller="Campanas" asp-action="Filtro">
+    <div class="filtro-campos">
+        <div class="form-group">
+            <label for="categoria">Categoría</label>
+            <select name="categoria" id="categoria">
+                <option value="">Todas</option>
+                @foreach (var cat in categorias)
+                {
+                    <option value="@cat" selected="@(cat == catActual ? "selected" : null)">@cat</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="estado">Estado</label>
+            <select name="estado" id="estado">
+                <option value="">Todos</option>
+                @foreach (var est in estados)
+                {
+                    <option value="@est" selected="@(est == estActual ? "selected" : null)">@est</option>
+                }
+            </select>
+        </div>
+        <div class="filtro-acciones">
+            <button type="submit" class="btn-primary">Filtrar</button>
+            <a class="btn-secondary" asp-controller="Campanas" asp-action="Filtro">Limpiar</a>
+        </div>
+    </div>
+</form>
+
+@if (!Model.Any())
+{
+    <p class="sin-resultados">No se encontraron campañas con los filtros seleccionados.</p>
+}
+else
+{
+    <p class="resultado-count">Se encontraron <strong>@Model.Count</strong> campaña(s).</p>
+    <table class="tabla">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Estado</th>
+                <th>Canal</th>
+                <th>Descuento</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@c.Nombre</td>
+                    <td>@c.Categoria</td>
+                    <td><span class="badge badge-@c.Estado.ToLower().Replace("ó","o")">@c.Estado</span></td>
+                    <td>@c.Canal</td>
+                    <td>@((c.DescuentoPct * 100).ToString("N0"))%</td>
+                    <td>
+                        <a class="btn-sm"
+                           asp-controller="Campanas"
+                           asp-action="Detalle"
+                           asp-route-id="@c.Id">Ver detalle</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
