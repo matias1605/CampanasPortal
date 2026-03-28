@@ -21,7 +21,7 @@ namespace CampanasPortal.Controllers
             return View(campana);
         }
 
-        // GET /Campanas/Filtro?categoria=Moda&estado=Vigente
+        // RF03 - Filtro por categoria y estado
         [HttpGet]
         public IActionResult Filtro(string? categoria, string? estado)
         {
