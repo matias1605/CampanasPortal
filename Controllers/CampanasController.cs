@@ -34,7 +34,7 @@ namespace CampanasPortal.Controllers
             return View(resultado);
         }
 
-        // GET /Campanas/Resumen
+        // RF04 - Resumen con indicadores calculados en memoria
         public IActionResult Resumen()
         {
             var resumen = CampanaService.ObtenerResumen();
