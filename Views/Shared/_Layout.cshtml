@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] – Portal de Campañas</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+
+<header class="header">
+    <div class="header-inner">
+        <a class="brand" asp-controller="Campanas" asp-action="Index">🛍 Portal de Campañas</a>
+        <nav class="nav">
+            <a asp-controller="Campanas" asp-action="Index">Ver Campañas</a>
+            <a asp-controller="Campanas" asp-action="Filtro">Buscar</a>
+            <a asp-controller="Campanas" asp-action="Resumen">Indicadores</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    @RenderBody()
+</main>
+
+<footer class="footer">
+    <p>© 2025 Portal de Campañas Comerciales | Prototipo interno sin persistencia</p>
+</footer>
+
+</body>
+</html>
