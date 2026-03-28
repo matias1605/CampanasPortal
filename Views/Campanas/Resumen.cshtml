@@ -1,0 +1,50 @@
+@model ResumenViewModel
+@{
+    ViewData["Title"] = "Resumen de Campañas";
+}
+
+<div class="page-header">
+    <h1>Resumen de Campañas</h1>
+    <p>Indicadores calculados en memoria sobre todas las campañas.</p>
+</div>
+
+<div class="resumen-grid">
+    <div class="resumen-card">
+        <span class="resumen-valor">@Model.Total</span>
+        <span class="resumen-label">Total campañas</span>
+    </div>
+    <div class="resumen-card verde">
+        <span class="resumen-valor">@Model.Vigentes</span>
+        <span class="resumen-label">Vigentes</span>
+    </div>
+    <div class="resumen-card azul">
+        <span class="resumen-valor">@Model.Proximas</span>
+        <span class="resumen-label">Próximas</span>
+    </div>
+    <div class="resumen-card gris">
+        <span class="resumen-valor">@Model.Finalizadas</span>
+        <span class="resumen-label">Finalizadas</span>
+    </div>
+    <div class="resumen-card naranja">
+        <span class="resumen-valor">@((Model.PromedioDescuento * 100).ToString("N1"))%</span>
+        <span class="resumen-label">Promedio de descuento</span>
+    </div>
+</div>
+
+<div class="card" style="margin-top:1.5rem;">
+    <h2>Campañas por canal</h2>
+    <table class="tabla-info">
+        <thead>
+            <tr><th>Canal</th><th>Cantidad</th></tr>
+        </thead>
+        <tbody>
+            @foreach (var kv in Model.PorCanal)
+            {
+                <tr>
+                    <td>@kv.Key</td>
+                    <td><strong>@kv.Value</strong></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
