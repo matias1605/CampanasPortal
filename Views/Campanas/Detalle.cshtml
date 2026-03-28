@@ -1,0 +1,40 @@
+@model Campana
+@{
+    ViewData["Title"] = "Detalle de Campaña";
+}
+
+<div class="page-header">
+    <h1>@Model.Nombre</h1>
+    <a class="link-volver" asp-controller="Campanas" asp-action="Index">← Volver al listado</a>
+</div>
+
+<div class="card detalle-grid">
+    <div class="detalle-fila">
+        <span class="label">Categoría</span>
+        <span>@Model.Categoria</span>
+    </div>
+    <div class="detalle-fila">
+        <span class="label">Estado</span>
+        <span class="badge badge-@Model.Estado.ToLower().Replace("ó","o")">@Model.Estado</span>
+    </div>
+    <div class="detalle-fila">
+        <span class="label">Canal</span>
+        <span>@Model.Canal</span>
+    </div>
+    <div class="detalle-fila">
+        <span class="label">Descuento</span>
+        <span>@((Model.DescuentoPct * 100).ToString("N0"))%</span>
+    </div>
+    <div class="detalle-fila">
+        <span class="label">Fecha inicio</span>
+        <span>@Model.FechaInicio.ToString("dd/MM/yyyy")</span>
+    </div>
+    <div class="detalle-fila">
+        <span class="label">Fecha fin</span>
+        <span>@Model.FechaFin.ToString("dd/MM/yyyy")</span>
+    </div>
+    <div class="detalle-fila detalle-descripcion">
+        <span class="label">Descripción</span>
+        <span>@Model.Descripcion</span>
+    </div>
+</div>
